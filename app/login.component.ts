@@ -30,12 +30,12 @@ export class LoginComponent {
         tenant: this.model.tenant
       }),
       //`https://${this.model.tenant}.staging.c8y.io`
-      'https://${this.model.tenant}.eu-latest.cumulocity.com'
+      `https://${this.model.tenant}.eu-latest.cumulocity.com`
     );
 
-    console.log(this.model.user);
-    console.log(this.model.password);
-    console.log(this.model.tenant);
+    console.log('USER: ' + this.model.user);
+    console.log(`URL: https://${this.model.tenant}.eu-latest.cumulocity.com`);
+    console.log('TENANT: ' + this.model.tenant);
     try {
       let user = await client.user.current();
       this.cumulocity.client = client;
