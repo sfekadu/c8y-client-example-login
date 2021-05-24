@@ -39,33 +39,35 @@ export class LoginComponent {
     console.log('TENANT: ' + this.model.tenant);
 
     //https://www.npmjs.com/package/@c8y/client
-    const auth = new BasicAuth({
-      user: 'solomonfekadu@hotmail.com',
-      password: '!Tat00ine',
-      tenant: 'edwardspoc3'
-    });
-    const baseUrl = 'https://edwardspoc3.eu-latest.cumulocity.com';
+//    const auth = new BasicAuth({
+//      user: 'solomonfekadu@hotmail.com',
+//      password: '****',
+//      tenant: 'edwardspoc3'
+//    });
+//    const baseUrl = 'https://edwardspoc3.eu-latest.cumulocity.com';
     try {
-      const client = await new Client(auth, baseUrl);
-      let user = await client.user.current;
-      console.log('LOGGED IN');
+//      //const client = await new Client(auth, baseUrl);
+//      const client = new Client(auth, baseUrl);
+//      let user = await client.user.current;
+//      console.log('Login with BasicAuth successful');
+//      this.cumulocity.client=client;
+
 
       //const user = await client.user.current;
       //this.cumulocity.client = client;
       //console.log(`DONE`);
       //console.log(client.user);
       //let user = await client.user.current();
-      //let user = client.user.current;
-      //this.cumulocity.client = client;
+      let user = client.user.current;
+      this.cumulocity.client = client;
 
-      //SUBSCRIBE
-      //const list$ = client.inventory.list$();
-      //list$.subscribe(data => console.log(data));
+      console.log('Login with BasicAuth successful');
 
     } catch (ex) {
       this.cumulocity.client = null;
       this.error.shown = true;
       this.error.msg = ex.message;
+      console.log('Login failed: ', ex)
     } finally {
       this.disabled = false;
     }
