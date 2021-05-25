@@ -43,7 +43,7 @@ export class ListComponent {
       severity: Severity.CRITICAL,
       time: '2018-05-02T10:08:00Z',
       type: 'Test Alarm',
-      text: 'This is a alarm.'
+      text: 'This is a alarm. SF needs to act on it!'
     });
   }
 }
